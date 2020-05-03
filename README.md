@@ -17,7 +17,7 @@ yearly average of at most 40µg/m3.
 4. Nitrogen dioxide (NO2) Hourly concentration exceeding 200µg/m3
 for at most 18 hours per year, and average yearly concentration of at most 40µg/m3.
 
-Our task consists of developing a Shiny app visualising the data with the following functionality.
+**Our task consists of developing a Shiny app visualising the data with the following functionality.**
 
 • The core functionality of the app is to produce time series plots of relevant summary statistics against time.
 
@@ -40,7 +40,7 @@ pollutant, the app should only show stations at which the pollutant was measured
 
 – Number of days per year for which the daily average concentration exceeds a given threshold.
 For aggregations involving a threshold, the user should be able to choose this threshold.
-1
+
 
 • The user should be able to choose how time is to be handled and what the x-Axis should represent. Choices should
 include
