@@ -1,0 +1,76 @@
+---
+title: "Air quality watch report"
+author: "Nitin Kumar Garg"
+date: "26/01/2020"
+output:
+  word_document: default
+  html_document: default
+params:
+  plotCode: NA
+  plotData: NA
+  tableData: NA
+  tableData2: NA
+  plotObj: NA
+  
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Air Quality Watch report
+
+Here is the air quality analysis report for Czech Republics, air quality data has been downloaded from European Environmental Agency ( see
+<https://www.eea.europa.eu/themes/air> ).  
+
+
+##   Here are the cities selected for analysis
+```{r echo=FALSE, results='asis'}
+library(knitr)
+knitr::kable(params$tableData, caption = "Selected cities..")
+```
+
+#   Here is the Czech Republics map...
+```{r echo=FALSE}
+dataset <- params$tableData
+  p <- ggplot() + geom_polygon(data = cz, aes(x=long, y = lat,group = group,), fill = "gray", color = "black") + 
+    geom_point(data =dataset,aes(x = dataset$Longitude , y = dataset$Latitude ), color = "Red", size = 2) +
+    geom_text(aes(x = dataset$Longitude +0.08, y = dataset$Latitude +0.0001,label = dataset$StationName, hjust = 0, color = "yellow"))+
+    
+    theme(legend.position = "none")+
+    theme(axis.title.x=element_blank(),
+          axis.text.x=element_blank(),
+          axis.ticks.x=element_blank())+
+    theme(axis.title.y=element_blank(),
+          axis.text.y=element_blank(),
+          axis.ticks.y=element_blank())+
+    theme(plot.margin = unit(c(0, 0, 0, 0), "pt"))+
+    coord_fixed(1.3)
+  
+  print(p)
+```
+
+
+
+```{r echo=FALSE, results='asis'}
+library(knitr)
+knitr::kable(params$tableData2, caption = "Concentration Data..")
+```
+
+
+
+```{r echo=FALSE}
+
+```
+#  Main polt 
+
+
+
+```{r echo=FALSE,fig.width=35,fig.height=20}
+library(ggplot2)
+params$plotObj
+  
+```
+
+
+#   End of the report 
